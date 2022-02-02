@@ -1,7 +1,7 @@
-import decimal
-import datetime
+from decimal import Decimal
+from datetime import date
 
 
-def calculate_price(total, date):
+def calculate_price(total: Decimal, day: date):
 
-    return total
+    return Decimal(total)

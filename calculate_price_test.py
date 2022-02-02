@@ -1,44 +1,44 @@
 import pytest
 from datetime import date
-import decimal
+from decimal import Decimal
 
 from calculate_price import calculate_price
 
 
 def test_calculate_price_1():
-    assert calculate_price(50.00, date(2022, 4, 9)) == decimal(47.50)
+    assert calculate_price(50.00, date(2022, 4, 9)) == Decimal(47.50)
 
 
 def test_calculate_price_2():
-    assert calculate_price(100.00, date(2022, 4, 10)) == decimal(90.00)
+    assert calculate_price(100.00, date(2022, 4, 10)) == Decimal(90.00)
 
 
 def test_calculate_price_3():
-    assert calculate_price(100.01, date(2022, 4, 18)) == decimal(85.00)
+    assert calculate_price(100.01, date(2022, 4, 18)) == Decimal(85.00)
 
 
 def test_calculate_price_4():
-    assert calculate_price(0.01, date(2022, 4, 8)) == decimal(0.01)
+    assert calculate_price(0.01, date(2022, 4, 8)) == Decimal(0.01)
 
 
 def test_calculate_price_5():
-    assert calculate_price(50.01, date(2022, 1, 1)) == decimal(50.01)
+    assert calculate_price(50.01, date(2022, 1, 1)) == Decimal(50.01)
 
 
 def test_calculate_price_6():
-    assert calculate_price(200.00, date(2022, 5, 5)) == decimal(200.00)
+    assert calculate_price(200.00, date(2022, 5, 5)) == Decimal(200.00)
 
 
 def test_calculate_price_7():
-    assert calculate_price(50.00, date(2022, 4, 19)) == decimal(50.00)
+    assert calculate_price(50.00, date(2022, 4, 19)) == Decimal(50.00)
 
 
 def test_calculate_price_8():
-    assert calculate_price(100.01, date(2022, 4, 21)) == decimal(100.01)
+    assert calculate_price(100.01, date(2022, 4, 21)) == Decimal(100.01)
 
 
 def test_calculate_price_9():
-    assert calculate_price(50.00, date(2022, 4, 9)) == decimal(50.00)
+    assert calculate_price(50.00, date(2022, 4, 9)) == Decimal(50.00)
 
 
 def test_calculate_price_10():
@@ -63,9 +63,9 @@ def test_calculate_price_12():
 
 
 def test_calculate_price_13():
-    assert calculate_price(100.09999, date(2022, 4, 9)) == decimal(85.07)
+    assert calculate_price(100.09999, date(2022, 4, 9)) == Decimal(85.07)
 
 
 def test_calculate_price_14():
-    assert calculate_price(100.09999, date(2022, 4, 20)) == decimal(100.09)
+    assert calculate_price(100.09999, date(2022, 4, 20)) == Decimal(100.09)
 
