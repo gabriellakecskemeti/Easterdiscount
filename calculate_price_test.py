@@ -27,7 +27,7 @@ def test_calculate_price_5():
 
 
 def test_calculate_price_6():
-    assert calculate_price(Decimal("200.00"), date(2022, 5, 5)) == Decimal("200.00")
+    assert calculate_price(Decimal("200.00"), date(2022, 5, 5)) == Decimal("200")
 
 
 def test_calculate_price_7():
@@ -72,7 +72,7 @@ def test_calculate_price_14():
 
 
 def test_calculate_price_15():
-    assert calculate_price(Decimal("0"), date(2022, 4, 11)) == Decimal("0")
+    assert calculate_price(Decimal("0.00"), date(2022, 4, 11)) == Decimal("0")
 
 
 def test_calculate_price_16():
@@ -81,3 +81,18 @@ def test_calculate_price_16():
 
 def test_calculate_price_17():
     assert calculate_price(Decimal("50.01"), date(2022, 4, 17)) == Decimal("45.00")
+
+
+def test_calculate_price_18():
+    assert calculate_price(Decimal("70"), date(2022, 4, 16)) == Decimal("63")
+
+
+def test_calculate_price_19():
+    assert calculate_price(Decimal("120"), date(2022, 4, 18)) == Decimal("102")
+
+
+def test_calculate_price_20():
+    with pytest.raises(ValueError) as exception_info:
+        calculate_price(120.09999, date(2022, 4, 9))
+    assert str(exception_info.value) == "The total given is not of type Decimal or negativ"
+    assert exception_info.type == ValueError
